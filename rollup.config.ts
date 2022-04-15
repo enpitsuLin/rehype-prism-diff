@@ -8,7 +8,8 @@ export default defineConfig({
   output: {
     file: path.join(__dirname, pkg.main),
     format: 'es',
-    name: pkg.name
+    name: pkg.name,
+    sourcemap: true
   },
   plugins: [typescript()]
 });
