@@ -1,7 +1,7 @@
 import { visit } from 'unist-util-visit';
 import type { Element, ElementContent, Comment, Text } from 'hast';
 
-const classMap = { '+': 'add', '-': 'del', '!': 'warn', '#': 'comment' };
+const classMap = { '+': 'inserted', '-': 'deleted', '!': 'warn', '#': 'comment' };
 
 function classList(node: Element) {
   if (node.properties?.className) {
