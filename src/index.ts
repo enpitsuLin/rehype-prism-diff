@@ -1,6 +1,7 @@
 import { visit } from 'unist-util-visit';
 import { toString } from 'hast-util-to-string';
-import type { Element, ElementContent, Comment, Text } from 'hast';
+import type { Plugin } from 'unified';
+import type { Element, ElementContent } from 'hast';
 
 function classList(node: Element) {
   if (node.properties?.className) {
@@ -72,7 +73,7 @@ function classList(node: Element) {
   return classList;
 }
 
-export default function rehypePrismDiff() {
+const rehypePrismDiff: Plugin<[], Element> = () => {
   return (tree: Element) => {
     visit(tree, 'element', (node, _index, parent) => {
       if (!parent || parent.tagName !== 'pre' || !('tagName' in node) || node.tagName !== 'code') {
@@ -97,4 +98,5 @@ export default function rehypePrismDiff() {
       });
     });
   };
-}
+};
+export default rehypePrismDiff;

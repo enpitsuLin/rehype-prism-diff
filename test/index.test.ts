@@ -1,7 +1,7 @@
 import { describe, test, expect } from 'vitest';
 import { rehype } from 'rehype';
 import dedent from 'dedent';
-import rehypePrismDiff from '.';
+import rehypePrismDiff from '../src';
 import rehypePrism, { RehypePrismOptions } from 'rehype-prism';
 import rehypePrismPlus from 'rehype-prism-plus';
 import { visit } from 'unist-util-visit';
