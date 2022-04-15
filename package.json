@@ -1,0 +1,32 @@
+{
+  "name": "rehype-prism-diff",
+  "version": "0.0.1",
+  "description": "rehype plugin to highlight diff block like github markdown with Prism",
+  "files": [
+    "dist"
+  ],
+  "main": "./dist/index.es.js",
+  "module": "./dist/index.es.js",
+  "types": "./dist/index.d.ts",
+  "type": "module",
+  "exports": {
+    ".": {
+      "import": "./dist/index.es.js"
+    }
+  },
+  "scripts": {
+    "build": "tsc --format esm"
+  },
+  "author": "enpitsulin",
+  "license": "MIT",
+  "dependencies": {
+    "unist-util-visit": "^4.1.0"
+  },
+  "devDependencies": {
+    "eslint": "^8.13.0",
+    "rehype": "^12.0.1",
+    "rehype-prism": "^2.1.2",
+    "rehype-prism-plus": "^1.3.2",
+    "typescript": "^4.6.3"
+  }
+}
