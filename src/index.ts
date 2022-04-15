@@ -3,6 +3,8 @@ import { toString } from 'hast-util-to-string';
 import type { Plugin } from 'unified';
 import type { Element, ElementContent } from 'hast';
 
+interface Options {}
+
 function classList(node: Element) {
   if (node.properties?.className) {
     if (typeof node.properties?.className === 'boolean') {
@@ -73,7 +75,7 @@ function classList(node: Element) {
   return classList;
 }
 
-const rehypePrismDiff: Plugin<[], Element> = () => {
+const rehypePrismDiff: Plugin<[Options?], Element> = () => {
   return (tree: Element) => {
     visit(tree, 'element', (node, _index, parent) => {
       if (!parent || parent.tagName !== 'pre' || !('tagName' in node) || node.tagName !== 'code') {
