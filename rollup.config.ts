@@ -1,8 +1,6 @@
 import path from 'path';
 import { defineConfig } from 'rollup';
 import typescript from '@rollup/plugin-typescript';
-import commonjs from '@rollup/plugin-commonjs';
-import { nodeResolve } from '@rollup/plugin-node-resolve';
 import pkg from './package.json';
 
 export default defineConfig({
