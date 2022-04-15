@@ -22,7 +22,6 @@
   "license": "MIT",
   "dependencies": {
     "hast-util-to-string": "^2.0.0",
-    "tslib": "^2.3.1",
     "unist-util-visit": "^4.1.0"
   },
   "devDependencies": {
