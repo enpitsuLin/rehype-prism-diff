@@ -1,7 +1,6 @@
 import { visit } from 'unist-util-visit';
+import { toString } from 'hast-util-to-string';
 import type { Element, ElementContent, Comment, Text } from 'hast';
-
-const classMap = { '+': 'inserted', '-': 'deleted', '!': 'warn', '#': 'comment' };
 
 function classList(node: Element) {
   if (node.properties?.className) {
@@ -73,20 +72,6 @@ function classList(node: Element) {
   return classList;
 }
 
-function dfs(node: ElementContent): undefined | Comment | Text {
-  if ('children' in node) {
-    return node.children
-      .map(dfs)
-      .flat()
-      .find((i) => !!i);
-  }
-
-  if ('value' in node && node.value != '')
-    if (/^[-+!#]/.test(node.value)) {
-      return node;
-    }
-}
-
 export default function rehypePrismDiff() {
   return (tree: Element) => {
     visit(tree, 'element', (node, _index, parent) => {
@@ -99,14 +84,15 @@ export default function rehypePrismDiff() {
       classList(node).add('code-diff');
       node.children.forEach((line: ElementContent) => {
         if (line.type !== 'element') return;
-        let operatorNode = dfs(line);
-        if (operatorNode) {
-          const operator = operatorNode.value.match(/^[-+!#]/)?.[0] as '+' | '-' | '!' | '#';
-          if (operator) {
-            line.properties = { operator };
-            operatorNode.value = operatorNode.value.slice(1);
-            classList(line).add(`diff-${classMap[operator]}`);
-          }
+        const lineString = toString(line);
+        if (lineString.substring(0, 1) === '-') {
+          classList(line).add(`diff-deleted`);
+        } else if (lineString.substring(0, 1) === '+') {
+          classList(line).add(`diff-inserted`);
+        } else if (lineString.substring(0, 1) === '!') {
+          classList(line).add(`diff-warn`);
+        } else if (lineString.substring(0, 1) === '#') {
+          classList(line).add(`diff-comment`);
         }
       });
     });

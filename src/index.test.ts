@@ -30,7 +30,6 @@ describe('rehypre-prism plugin', () => {
       .toString();
   };
   test('should add diff', () => {
-    const meta = 'diff';
     const result = processHtml(
       dedent`
     <div>
@@ -40,7 +39,7 @@ describe('rehypre-prism plugin', () => {
     </div>
     `,
       {
-        meta
+        meta: 'diff'
       }
     );
     expect(result).toMatchSnapshot();
@@ -55,7 +54,10 @@ describe('rehypre-prism plugin', () => {
       </code>
       </pre>
     </div>
-    `
+    `,
+      {
+        meta: 'diff'
+      }
     );
     expect(result).toMatchSnapshot();
   });
@@ -72,7 +74,6 @@ describe('rehypre-prism-plus plugin', () => {
       .toString();
   };
   test('should add diff', () => {
-    const meta = 'diff';
     const result = processHtml(
       dedent`
     <div>
@@ -82,7 +83,7 @@ describe('rehypre-prism-plus plugin', () => {
     </div>
     `,
       {
-        meta
+        meta: 'diff'
       }
     );
     expect(result).toMatchSnapshot();
@@ -98,7 +99,10 @@ describe('rehypre-prism-plus plugin', () => {
       </code>
       </pre>
     </div>
-    `
+    `,
+      {
+        meta: 'diff'
+      }
     );
     expect(result).toMatchSnapshot();
   });
