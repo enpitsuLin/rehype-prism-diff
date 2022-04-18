@@ -1,6 +1,6 @@
-// Vitest Snapshot v1
+// Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`rehypre-prism plugin > add inserted or deleted class to line 1`] = `
+exports[`rehypre-prism plugin add inserted or deleted class to line 1`] = `
 "<div>
   <pre class=\\"language-css\\">  <code class=\\"language-css code-diff\\"><span class=\\"token selector diff-inserted\\">+ p</span> <span class=\\"token punctuation\\">{</span> <span class=\\"token property\\">color</span><span class=\\"token punctuation\\">:</span> white <span class=\\"token punctuation\\">}</span>
 <span class=\\"token selector diff-deleted\\">- p</span> <span class=\\"token punctuation\\">{</span> <span class=\\"token property\\">color</span><span class=\\"token punctuation\\">:</span> red <span class=\\"token punctuation\\">}</span>
@@ -9,14 +9,14 @@ exports[`rehypre-prism plugin > add inserted or deleted class to line 1`] = `
 </div>"
 `;
 
-exports[`rehypre-prism plugin > should add diff 1`] = `
+exports[`rehypre-prism plugin should add diff 1`] = `
 "<div>
   <pre class=\\"language-css\\">  <code class=\\"language-css code-diff\\"><span class=\\"token selector\\">p</span> <span class=\\"token punctuation\\">{</span> <span class=\\"token property\\">color</span><span class=\\"token punctuation\\">:</span> red <span class=\\"token punctuation\\">}</span></code>
   </pre>
 </div>"
 `;
 
-exports[`rehypre-prism-plus plugin > add inserted or deleted class to line 1`] = `
+exports[`rehypre-prism-plus plugin add inserted or deleted class to line 1`] = `
 "<div>
   <pre class=\\"language-css\\">  <code class=\\"language-css code-highlight code-diff\\"><span class=\\"code-line diff-inserted\\"><span class=\\"token selector\\"><span class=\\"token combinator\\">+</span> p</span> <span class=\\"token punctuation\\">{</span> <span class=\\"token property\\">color</span><span class=\\"token punctuation\\">:</span> <span class=\\"token color\\">white</span> <span class=\\"token punctuation\\">}</span>
 </span><span class=\\"code-line diff-deleted\\"><span class=\\"token selector\\">- p</span> <span class=\\"token punctuation\\">{</span> <span class=\\"token property\\">color</span><span class=\\"token punctuation\\">:</span> <span class=\\"token color\\">red</span> <span class=\\"token punctuation\\">}</span>
@@ -25,9 +25,7 @@ exports[`rehypre-prism-plus plugin > add inserted or deleted class to line 1`] =
 </div>"
 `;
 
-exports[`rehypre-prism-plus plugin > should add diff 1`] = `
-"<div>
-  <pre class=\\"language-css\\">  <code class=\\"language-css code-highlight code-diff\\"><span class=\\"code-line\\"><span class=\\"token selector\\">p</span> <span class=\\"token punctuation\\">{</span> <span class=\\"token property\\">color</span><span class=\\"token punctuation\\">:</span> <span class=\\"token color\\">red</span> <span class=\\"token punctuation\\">}</span></span></code>
-  </pre>
-</div>"
+exports[`rehypre-prism-plus plugin should add diff 1`] = `
+"<pre class=\\"language-css\\"><code class=\\"language-css code-highlight code-diff\\"><span class=\\"code-line\\"><span class=\\"token selector\\">p</span> <span class=\\"token punctuation\\">{</span> <span class=\\"token property\\">color</span><span class=\\"token punctuation\\">:</span> <span class=\\"token color\\">red</span> <span class=\\"token punctuation\\">}</span></span></code>
+</pre>"
 `;
