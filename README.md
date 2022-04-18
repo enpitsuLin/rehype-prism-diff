@@ -4,7 +4,6 @@ A rehypre plugin allow not only `diff` language but also all language to show gi
 
 ![sample](https://user-images.githubusercontent.com/29378026/163522813-e0466685-7075-4075-9530-3abd2c885b13.png)
 
-
 ## Installation
 
 ```sh
@@ -18,6 +17,10 @@ pnpm add rehype-prism-diff
 use this package [as a rehype plugin.](https://github.com/rehypejs/rehype/blob/master/doc/plugins.md#using-plugins)
 
 ## Styling
+
+This plugin will add class `code-diff` to `<code>` block and add the corresponding class for each `code-line` according to the first character of each line
+
+You should add stylesheet by yourself, for exmpale:
 
 ```css
 .code-line.diff-inserted {
@@ -34,36 +37,6 @@ use this package [as a rehype plugin.](https://github.com/rehypejs/rehype/blob/m
 
 .code-line.diff-comment {
   background-color: rgba(255, 255, 255, 0.2); /* Set comment line (#) color */
-}
-```
-
-<details>
-<summary>perfer display +/-/!/#</summary>
-
-```css
-.code-line.diff-inserted:after {
-  content: '+';
-  position: absolute;
-  left: 0;
-  top: 0;
-}
-.code-line.diff-deleted:after {
-  content: '-';
-  position: absolute;
-  left: 0;
-  top: 0;
-}
-.code-line.diff-warn:after {
-  content: '!';
-  position: absolute;
-  left: 0;
-  top: 0;
-}
-.code-line.diff-comment:after {
-  content: '#';
-  position: absolute;
-  left: 0;
-  top: 0;
 }
 ```
 
