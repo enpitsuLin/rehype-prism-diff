@@ -42,6 +42,10 @@ You should add stylesheet by yourself, for exmpale:
 
 </details>
 
+## Contribute
+
+If you have any suggestion or bug, please feel free to [open an issue](https://github.com/enpitsuLin/rehype-prism-diff/issues/new)
+
 ## License
 
 MIT
