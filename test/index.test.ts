@@ -28,6 +28,20 @@ describe('rehypre-prism plugin', () => {
       .processSync(html)
       .toString()
   }
+
+  test('should no diff', () => {
+    const result = processHtml(
+      dedent`
+    <div>
+      <pre>
+      <code class="language-css">p { color: red }</code>
+      </pre>
+    </div>
+    `
+    )
+    expect(result).toMatchSnapshot()
+  })
+
   test('should add diff', () => {
     const result = processHtml(
       dedent`
@@ -43,6 +57,7 @@ describe('rehypre-prism plugin', () => {
     )
     expect(result).toMatchSnapshot()
   })
+  
   test('add inserted or deleted class to line', () => {
     const result = processHtml(
       dedent`
@@ -74,6 +89,20 @@ describe('rehypre-prism-plus plugin', () => {
       .processSync(html)
       .toString()
   }
+
+  test('should no diff', () => {
+    const result = processHtml(
+      dedent`
+    <div>
+      <pre>
+      <code class="language-css">p { color: red }</code>
+      </pre>
+    </div>
+    `
+    )
+    expect(result).toMatchSnapshot()
+  })
+
   test('should add diff', () => {
     const result = processHtml(
       dedent`
