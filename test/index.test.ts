@@ -50,6 +50,8 @@ describe('rehypre-prism plugin', () => {
       <pre>
       <code class="language-css">+ p { color: white }
 - p { color: red }
+! div { background: red }
+# div { background: black }
       </code>
       </pre>
     </div>
@@ -75,9 +77,11 @@ describe('rehypre-prism-plus plugin', () => {
   test('should add diff', () => {
     const result = processHtml(
       dedent`
-      <pre>
-      <code class="language-css">p { color: red }</code>
-      </pre>
+      <div>
+        <pre>
+        <code class="language-css">p { color: red }</code>
+        </pre>
+      </div>
     `,
       {
         meta: 'diff'
@@ -93,6 +97,8 @@ describe('rehypre-prism-plus plugin', () => {
       <pre>
       <code class="language-css">+ p { color: white }
 - p { color: red }
+! div { background: red }
+# div { background: black }
       </code>
       </pre>
     </div>
