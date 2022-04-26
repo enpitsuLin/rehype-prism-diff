@@ -1,17 +1,18 @@
 //@ts-ignore
-import ClassList = require('hast-util-class-list')
+import ClassList from 'hast-util-class-list'
 import { visit } from 'unist-util-visit'
 import { toString } from 'hast-util-to-string'
 import type { Plugin } from 'unified'
 import type { Element, ElementContent } from 'hast'
 
-interface Options {}
+export interface Options {}
 
 function classList(node: Element) {
+  //@ts-ignore
   return ClassList(node)
 }
 
-const rehypePrismDiff: Plugin<[Options?], Element> = () => {
+const rehypePrismDiff: Plugin<[Options?], Element> = (option) => {
   return (tree: Element) => {
     visit(tree, 'element', (node, _index, parent) => {
       if (!parent || parent.tagName !== 'pre' || !('tagName' in node) || node.tagName !== 'code') {
