@@ -1,6 +1,6 @@
 {
   "name": "rehype-prism-diff",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "rehype plugin to highlight diff block like github markdown with Prism",
   "files": [
     "dist"
