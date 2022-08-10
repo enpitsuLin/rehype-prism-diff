@@ -17,7 +17,8 @@
   "scripts": {
     "test": "cross-env NODE_OPTIONS=--experimental-vm-modules npx jest",
     "coverage": "cross-env NODE_OPTIONS=--experimental-vm-modules npx jest --coverage",
-    "build": "tsc && rollup -c rollup.config.ts --configPlugin typescript"
+    "build": "tsc && rollup -c rollup.config.ts --configPlugin typescript",
+    "prepare": "npm run build"
   },
   "author": "enpitsulin",
   "license": "MIT",
