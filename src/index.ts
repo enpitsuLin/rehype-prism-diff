@@ -7,13 +7,17 @@ import type { Element, ElementContent } from 'hast'
 export interface Options {
   /** remove the first character which used to mark */
   remove?: boolean
-  classMapping?: Partial<Record<'diff' | 'deleted' | 'inserted' | 'warn' | 'comment', string>>
+  classMapping?: Partial<Record<'diff' | 'deleted' | 'inserted' | 'warn' | 'comment', string | string[]>>
 }
 
-function addClass(node: Element, className: string) {
+function addClass(node: Element, className: string | string[]) {
   if (!node.properties) return
-  if (!node.properties.className) node.properties.className = [className]
-  ;(node.properties.className as string[]).push(className)
+  if (!node.properties.className) {
+    if (Array.isArray(className)) node.properties.className = className
+    else node.properties.className = [className]
+  }
+  if (Array.isArray(className)) (node.properties.className as string[]).push(...className)
+  else (node.properties.className as string[]).push(className)
 }
 
 const rehypePrismDiff: Plugin<[Options?], Element> = (
