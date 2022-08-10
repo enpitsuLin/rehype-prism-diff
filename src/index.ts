@@ -68,7 +68,7 @@ const rehypePrismDiff: Plugin<[Options?], Element> = (
     line.children.forEach((item) => {
       if (item.type !== 'text') return
       const itemString = toString(item)
-      if (itemString.match(/\+|-|!|#/)) fromString(line, itemString.substring(1))
+      if (itemString.match(/^\+|-|!|#/)) fromString(item, itemString.substring(1))
     })
   }
 }
