@@ -24,6 +24,7 @@
   "license": "MIT",
   "dependencies": {
     "hast-util-class-list": "^1.0.0",
+    "hast-util-from-string": "^2.0.0",
     "hast-util-to-string": "^2.0.0",
     "unist-util-visit": "^4.1.0"
   },

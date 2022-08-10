@@ -10,6 +10,7 @@ specifiers:
   cross-env: ^7.0.3
   dedent: ^0.7.0
   hast-util-class-list: ^1.0.0
+  hast-util-from-string: ^2.0.0
   hast-util-to-string: ^2.0.0
   jest: ^27.5.1
   rehype: ^12.0.1
@@ -24,6 +25,7 @@ specifiers:
 
 dependencies:
   hast-util-class-list: 1.0.0
+  hast-util-from-string: 2.0.0
   hast-util-to-string: 2.0.0
   unist-util-visit: 4.1.0
 
@@ -1462,6 +1464,12 @@ packages:
       vfile-location: 4.0.1
       web-namespaces: 2.0.1
     dev: true
+
+  /hast-util-from-string/2.0.0:
+    resolution: {integrity: sha512-9JlBGWh+RXbT8PDrdwYZloN6poib8xg7Vq+LgN5TTqnaMDO0YqfX4EyZd3Myel6yIXlDsgysiRB1CTjH2K+1Dg==}
+    dependencies:
+      '@types/hast': 2.3.4
+    dev: false
 
   /hast-util-is-element/2.1.2:
     resolution: {integrity: sha512-thjnlGAnwP8ef/GSO1Q8BfVk2gundnc2peGQqEg2kUt/IqesiGg/5mSwN2fE7nLzy61pg88NG6xV+UrGOrx9EA==}

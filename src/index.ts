@@ -2,10 +2,14 @@
 import ClassList from 'hast-util-class-list'
 import { visit } from 'unist-util-visit'
 import { toString } from 'hast-util-to-string'
+import { fromString } from 'hast-util-from-string'
 import type { Plugin } from 'unified'
 import type { Element, ElementContent } from 'hast'
 
-export interface Options {}
+export interface Options {
+  /** remove the first character which used to mark */
+  remove?: boolean
+}
 
 function classList(node: Element) {
   //@ts-ignore
@@ -34,7 +38,18 @@ const rehypePrismDiff: Plugin<[Options?], Element> = (option) => {
         } else if (lineString.substring(0, 1) === '#') {
           classList(line).add(`diff-comment`)
         }
+        if (option?.remove) {
+          removeFirstChar(line)
+        }
       })
+    })
+  }
+
+  function removeFirstChar(line: Element) {
+    line.children.forEach((item) => {
+      if (item.type !== 'text') return
+      const itemString = toString(item)
+      if (itemString.match(/\+|-|!|#/)) fromString(line, itemString.substring(1))
     })
   }
 }
