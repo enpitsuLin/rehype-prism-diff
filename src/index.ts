@@ -25,13 +25,16 @@ const rehypePrismDiff: Plugin<[Options?], Element> = (
     remove: false
   }
 ) => {
-  const classMapping = (option.classMapping || {
-    diff: 'code-diff',
-    deleted: 'diff-deleted',
-    inserted: 'diff-inserted',
-    warn: 'diff-warn',
-    comment: 'diff-comment'
-  }) as NonNullable<Required<Options['classMapping']>>
+  const classMapping = Object.assign(
+    {
+      diff: 'code-diff',
+      deleted: 'diff-deleted',
+      inserted: 'diff-inserted',
+      warn: 'diff-warn',
+      comment: 'diff-comment'
+    },
+    option.classMapping || {}
+  ) as NonNullable<Required<Options['classMapping']>>
 
   return (tree: Element) => {
     visit(tree, 'element', (node, _index, parent) => {
