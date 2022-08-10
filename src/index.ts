@@ -16,7 +16,7 @@ function classList(node: Element) {
   return ClassList(node)
 }
 
-const rehypePrismDiff: Plugin<[Options?], Element> = (option) => {
+const rehypePrismDiff: Plugin<[Options?], Element> = (option = { remove: false }) => {
   return (tree: Element) => {
     visit(tree, 'element', (node, _index, parent) => {
       if (!parent || parent.tagName !== 'pre' || !('tagName' in node) || node.tagName !== 'code') {
