@@ -96,6 +96,20 @@ describe('rehypre-prism plugin', () => {
     )
     expect(result).toMatchSnapshot()
   })
+
+  test('option classMapping work', () => {
+    const result = processHtml(
+      dedent`   <div>
+    <pre>
+    <code class="language-css">+ p { color: white }
+- p { color: red }
+    </code>
+    </pre>
+  </div>`,
+      { meta: 'diff', optionsDiff: { remove: true, classMapping: { diff: 'custom-diff' } } }
+    )
+    expect(result).toMatchSnapshot()
+  })
 })
 
 describe('rehypre-prism-plus plugin', () => {
@@ -173,6 +187,20 @@ describe('rehypre-prism-plus plugin', () => {
     </pre>
   </div>`,
       { meta: 'diff', optionsDiff: { remove: true } }
+    )
+    expect(result).toMatchSnapshot()
+  })
+
+  test('option classMapping work', () => {
+    const result = processHtml(
+      dedent`   <div>
+    <pre>
+    <code class="language-css">+ p { color: white }
+- p { color: red }
+    </code>
+    </pre>
+  </div>`,
+      { meta: 'diff', optionsDiff: { remove: true, classMapping: { diff: 'custom-diff' } } }
     )
     expect(result).toMatchSnapshot()
   })
