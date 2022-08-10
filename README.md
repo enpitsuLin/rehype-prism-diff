@@ -6,7 +6,7 @@
 
 A rehypre plugin allow not only `diff` language but also all language to show github flavored highlight diff block, suport both [rehype-prism-plus](https://github.com/timlrx/rehype-prism-plus) and [rehype-prism](https://github.com/mapbox/rehype-prism)
 
-![sample](sample-img)
+![sample](https://user-images.githubusercontent.com/29378026/163522813-e0466685-7075-4075-9530-3abd2c885b13.png)
 
 ## Installation
 
@@ -97,5 +97,4 @@ MIT © [enpitsuLin](https://enpitsulin.xyz)
 [downloads]: https://www.npmjs.com/package/rehype-prism-diff
 [size-badge]: https://img.shields.io/bundlephobia/minzip/rehype-prism-diff.svg
 [size]: https://bundlephobia.com/result?p=rehype-prism-diff
-[sample-img]: https://user-images.githubusercontent.com/29378026/163522813-e0466685-7075-4075-9530-3abd2c885b13.png
 [esmsh]: https://esm.sh
