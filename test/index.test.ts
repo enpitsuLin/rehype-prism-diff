@@ -18,7 +18,7 @@ const addMeta = (meta?: string) => {
   }
 }
 
-describe('rehypre-prism plugin', () => {
+describe('rehype-prism plugin', () => {
   const processHtml = (
     html: string,
     setting?: { options?: RehypePrismOptions; optionsDiff?: Options; meta?: string }
@@ -112,7 +112,7 @@ describe('rehypre-prism plugin', () => {
   })
 })
 
-describe('rehypre-prism-plus plugin', () => {
+describe('rehype-prism-plus plugin', () => {
   const processHtml = (
     html: string,
     setting?: { options?: RehypePrismPlusOptions; optionsDiff?: Options; meta?: string }
