@@ -1,5 +1,3 @@
-//@ts-ignore
-import ClassList from 'hast-util-class-list'
 import { visit } from 'unist-util-visit'
 import { toString } from 'hast-util-to-string'
 import { fromString } from 'hast-util-from-string'
@@ -11,9 +9,10 @@ export interface Options {
   remove?: boolean
 }
 
-function classList(node: Element) {
-  //@ts-ignore
-  return ClassList(node)
+function addClass(node: Element, className: string) {
+  if (!node.properties) return
+  if (!node.properties.className) node.properties.className = [className]
+  ;(node.properties.className as string[]).push(className)
 }
 
 const rehypePrismDiff: Plugin<[Options?], Element> = (option = { remove: false }) => {
@@ -25,18 +24,18 @@ const rehypePrismDiff: Plugin<[Options?], Element> = (option = { remove: false }
       let meta: string = node.data && <string>node.data.meta ? <string>node.data.meta : ''
       if (!meta.toLowerCase().includes('diff'.toLowerCase())) return
 
-      classList(node).add('code-diff')
+      addClass(node, 'code-diff')
       node.children.forEach((line: ElementContent) => {
         if (line.type !== 'element') return
         const lineString = toString(line)
         if (lineString.substring(0, 1) === '-') {
-          classList(line).add(`diff-deleted`)
+          addClass(line, `diff-deleted`)
         } else if (lineString.substring(0, 1) === '+') {
-          classList(line).add(`diff-inserted`)
+          addClass(line, `diff-inserted`)
         } else if (lineString.substring(0, 1) === '!') {
-          classList(line).add(`diff-warn`)
+          addClass(line, `diff-warn`)
         } else if (lineString.substring(0, 1) === '#') {
-          classList(line).add(`diff-comment`)
+          addClass(line, `diff-comment`)
         }
         if (option?.remove) {
           removeFirstChar(line)

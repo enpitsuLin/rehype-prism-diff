@@ -9,7 +9,6 @@ specifiers:
   '@types/node': ^17.0.24
   cross-env: ^7.0.3
   dedent: ^0.7.0
-  hast-util-class-list: ^1.0.0
   hast-util-from-string: ^2.0.0
   hast-util-to-string: ^2.0.0
   jest: ^27.5.1
@@ -24,7 +23,6 @@ specifiers:
   unist-util-visit: ^4.1.0
 
 dependencies:
-  hast-util-class-list: 1.0.0
   hast-util-from-string: 2.0.0
   hast-util-to-string: 2.0.0
   unist-util-visit: 4.1.0
@@ -1436,10 +1434,6 @@ packages:
     dependencies:
       function-bind: 1.1.1
     dev: true
-
-  /hast-util-class-list/1.0.0:
-    resolution: {integrity: sha512-Fg3OUAhwp4AWolOSMHa2vrJs5KSxxA7H3iHP7lDHupVyZmje2EUOjNuwWfPzfSPfN4Bn0qLHILW7ew8dT3boWQ==}
-    dev: false
 
   /hast-util-from-parse5/6.0.1:
     resolution: {integrity: sha512-jeJUWiN5pSxW12Rh01smtVkZgZr33wBokLzKLwinYOUfSzm1Nl/c3GUGebDyOKjdsRgMvoVbV0VpAcpjF4NrJA==}
