@@ -1,6 +1,6 @@
 import { rehype } from 'rehype'
 import dedent from 'dedent'
-import rehypePrismDiff, { Options } from '../'
+import rehypePrismDiff, { Options } from '../src/'
 import rehypePrism, { RehypePrismOptions } from 'rehype-prism/'
 import rehypePrismPlus from 'rehype-prism-plus'
 import { visit } from 'unist-util-visit'
