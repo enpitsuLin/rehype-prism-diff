@@ -48,17 +48,18 @@ const rehypePrismDiff: Plugin<[Options?], Element> = (
       node.children.forEach((line: ElementContent) => {
         if (line.type !== 'element') return
         const lineString = toString(line)
-        if (lineString.substring(0, 1) === '-') {
-          addClass(line, classMapping.deleted)
-        } else if (lineString.substring(0, 1) === '+') {
-          addClass(line, classMapping.inserted)
-        } else if (lineString.substring(0, 1) === '!') {
-          addClass(line, classMapping.warn)
-        } else if (lineString.substring(0, 1) === '#') {
-          addClass(line, classMapping.comment)
-        }
-        if (option?.remove) {
-          removeFirstChar(line)
+        const match = lineString.match(/^(\+|-|!|#).+/)?.[1]
+        if (match) {
+          const matchMap: Record<string, 'deleted' | 'inserted' | 'warn' | 'comment'> = {
+            '+': 'inserted',
+            '-': 'deleted',
+            '#': 'comment',
+            '!': 'warn'
+          }
+          addClass(line, classMapping[matchMap[match]])
+          if (option?.remove) {
+            removeFirstChar(line)
+          }
         }
       })
     })
